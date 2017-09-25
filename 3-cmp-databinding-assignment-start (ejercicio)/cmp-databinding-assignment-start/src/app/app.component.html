@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Bind it!</h3>
+      <!-- <ol>
+        <li>Create three new components: GameControl, Odd and Even</li>
+        <li>The GameControl Component should have buttons to start and stop the game</li>
+        <li>When starting the game, an event (holding a incrementing number) should get emitted each second (ref = setInterval())</li>
+        <li>The event should be listenable from outside the component</li>
+        <li>When stopping the game, no more events should get emitted (clearInterval(ref))</li>
+        <li>A new Odd component should get created for every odd number emitted, the same should happen for the Even Component (on even numbers)</li>
+        <li>Simply output Odd - NUMBER or Even - NUMBER in the two components</li>
+        <li>Style the element (e.g. paragraph) holding your output text differently in both components</li>
+      </ol> -->
+      <ol>       
+        <li> Crear tres nuevos componentes: GameControl, Odd e Even </ li>
+        <li> El componente GameControl debe tener botones para iniciar y detener el juego </ li>
+        <li> Al iniciar el juego, un evento (con un número incrementado) debe emitirse cada segundo (ref = setInterval ()) </ li>
+        <li> El evento debe poder ser escuchado desde fuera del componente </ li>
+        <li> Al detener el juego, no se deben emitir más eventos (clearInterval (ref)) </ li>
+        <li> Un nuevo componente Odd debe ser creado para cada número impar emitido, lo mismo debería suceder para el componente Even (en números pares) </ li>
+        <li> Simplemente emita el número impar - NUMBER o Even - NUMBER en los dos componentes </ li>
+        <li> Estilo del elemento (por ejemplo, párrafo) manteniendo el texto de salida de forma diferente en ambos componentes </ li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <app-game-control
+    (startGame)="onStart($event)"></app-game-control>  
+  </div>
+  <hr>
+  <div class="col-xs-5">
+    <app-odd 
+      *ngFor="let o of odds"
+      [num]="o.num">
+    </app-odd>
+  </div>
+  <div class="col-xs-5">
+    <app-even 
+      *ngFor="let e of evens"
+      [num]="e.num">
+    </app-even>
+  </div>
+</div>

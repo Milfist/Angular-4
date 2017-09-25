@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]= "{odd: number % 2 !== 0}"
+            [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let number of odds"
+          >
+            {{ number }}
+          </li>
+        </div>
+        <!-- <div *ngIf="!onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]= "{odd: number % 2 !== 0}"
+            [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let number of evens"
+          >
+            {{ number }}
+          </li>
+        </div>
+        <ng-template [ngIf]="!onlyOdd" >
+          <div>
+            <li
+              class="list-group-item"
+              [ngClass]= "{odd: number % 2 !== 0}"
+              [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'}"
+              *ngFor="let number of evens"
+            >
+              {{ number }}
+            </li>  
+          </div>
+        </ng-template> -->
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]= "{odd: number % 2 !== 0}"
+            [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let number of evens"
+          >
+            {{ number }}
+          </li>
+        </div>
+
+      </ul>
+      <p appBasicHighlight>Hola! Directiva basic!</p>
+      <!-- <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'" >Hola! Directiva better!</p> -->
+      <!-- <p [appBetterHighlight]="'red'" [defaultColor]="'yellow'">Hola! Directiva better!</p> -->
+      <p [appBetterHighlight]="'red'" defaultColor="yellow">Hola! Directiva better!</p>
+      <ng-template [ngIf]="onlyOdd">
+        <p>Only odd</p>
+      </ng-template>
+    </div>
+  </div>
+  <hr>
+  <div class="row" [ngSwitch]="value">
+    <p *ngSwitchCase='5'>Value is 5</p>
+    <p *ngSwitchCase='10'>Value is 10</p>
+    <p *ngSwitchCase='100'>Value is 100</p>
+    <p *ngSwitchDefault>Value is default</p>
+  </div>
+</div>
